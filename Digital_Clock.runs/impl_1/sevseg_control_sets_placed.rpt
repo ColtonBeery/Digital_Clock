@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 13 11:47:36 2019
+| Date         : Wed Mar 13 12:04:14 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file sevseg_control_sets_placed.rpt
 | Design       : sevseg
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     2 |
-| Unused register locations in slices containing registers |     5 |
+| Number of unique control sets                            |     6 |
+| Unused register locations in slices containing registers |    12 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,6 +34,7 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
+|      7 |            4 |
 |    16+ |            2 |
 +--------+--------------+
 
@@ -44,10 +45,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              24 |            8 |
+| No           | No                    | No                     |              29 |            9 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              19 |            5 |
-| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              28 |           11 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -56,11 +57,15 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+---------------+------------------+------------------+----------------+
-|  Clock Signal  | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+----------------+---------------+------------------+------------------+----------------+
-|  clk_IBUF_BUFG |               | clear            |                5 |             19 |
-|  clk_IBUF_BUFG |               |                  |                8 |             24 |
-+----------------+---------------+------------------+------------------+----------------+
++----------------+-----------------------+------------------+------------------+----------------+
+|  Clock Signal  |     Enable Signal     | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------+-----------------------+------------------+------------------+----------------+
+|  clk_IBUF_BUFG | LED_out_reg[2]__0     |                  |                2 |              7 |
+|  clk_IBUF_BUFG | LED_out[3][6]_i_1_n_0 |                  |                3 |              7 |
+|  clk_IBUF_BUFG | LED_out_reg[0]__0     |                  |                3 |              7 |
+|  clk_IBUF_BUFG | LED_out_reg[1]__0     |                  |                3 |              7 |
+|  clk_IBUF_BUFG |                       | clear            |                5 |             19 |
+|  clk_IBUF_BUFG |                       |                  |                9 |             29 |
++----------------+-----------------------+------------------+------------------+----------------+
 
 

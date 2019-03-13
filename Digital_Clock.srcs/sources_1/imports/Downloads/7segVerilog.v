@@ -13,7 +13,7 @@
 //
 // Dependencies: Basys3_Master.xdc
 //
-// Revision: 0.3
+// Revision: 0.4
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
@@ -25,8 +25,8 @@ module sevseg (
     );
     
     reg [1:0] current_LED = 0;
-    reg [3:0] four_bit_data;
-    reg [7:0] LED_out;
+    reg [3:0] four_bit_data [3:0];
+    reg [7:0] LED_out [3:0];
     
     reg [18:0] counter = 0; 
     parameter max_counter = 500000; //cycle through SSEG's every 500000 clock cycles -> 1/200 seconds
@@ -38,48 +38,68 @@ module sevseg (
             current_LED <= current_LED + 1;
             counter <= 0;
         end
-                
-        four_bit_data[0] <= IO_SWITCH[0];
-        four_bit_data[1] <= IO_SWITCH[1];
-        four_bit_data[2] <= IO_SWITCH[2];
-        four_bit_data[3] <= IO_SWITCH[3];
         
-		case(four_bit_data) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
-			 4'b0000 : LED_out <= 7'b1000000; //0
-			 4'b0001 : LED_out <= 7'b1111001; //1
-			 4'b0010 : LED_out <= 7'b0100100; //2
-			 4'b0011 : LED_out <= 7'b0110000; //3
-			 4'b0100 : LED_out <= 7'b0011001; //4
-			 4'b0101 : LED_out <= 7'b0010010; //5
-			 4'b0110 : LED_out <= 7'b0000010; //6
-			 4'b0111 : LED_out <= 7'b1111000; //7
-			 4'b1000 : LED_out <= 7'b0000000; //8
-			 4'b1001 : LED_out <= 7'b0011000; //9
-			 4'b1010 : LED_out <= 7'b0001000; //10	A
-			 4'b1011 : LED_out <= 7'b0000011; //11	b
-			 4'b1100 : LED_out <= 7'b1000110; //12	C
-			 4'b1101 : LED_out <= 7'b0100001; //13	d
-			 4'b1110 : LED_out <= 7'b0000110; //14	E
-			 default : LED_out <= 7'b0001110; //Otherwise, F
+                
+        four_bit_data[0][0] <= IO_SWITCH[0];
+        four_bit_data[1][0] <= IO_SWITCH[1];
+        four_bit_data[2][0] <= IO_SWITCH[2];
+        four_bit_data[3][0] <= IO_SWITCH[3];
+
+        four_bit_data[0][1] <= IO_SWITCH[4];
+        four_bit_data[1][1] <= IO_SWITCH[5];
+        four_bit_data[2][1] <= IO_SWITCH[6];
+        four_bit_data[3][1] <= IO_SWITCH[7];
+
+        four_bit_data[0][2] <= IO_SWITCH[8];
+        four_bit_data[1][2] <= IO_SWITCH[9];
+        four_bit_data[2][2] <= IO_SWITCH[10];
+        four_bit_data[3][2] <= IO_SWITCH[11];
+
+        four_bit_data[0][3] <= IO_SWITCH[12];
+        four_bit_data[1][3] <= IO_SWITCH[13];
+        four_bit_data[2][3] <= IO_SWITCH[14];
+        four_bit_data[3][3] <= IO_SWITCH[15];
+        
+		case(four_bit_data[current_LED]) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
+			 4'b0000 : LED_out[current_LED] <= 7'b1000000; //0
+			 4'b0001 : LED_out[current_LED] <= 7'b1111001; //1
+			 4'b0010 : LED_out[current_LED] <= 7'b0100100; //2
+			 4'b0011 : LED_out[current_LED] <= 7'b0110000; //3
+			 4'b0100 : LED_out[current_LED] <= 7'b0011001; //4
+			 4'b0101 : LED_out[current_LED] <= 7'b0010010; //5
+			 4'b0110 : LED_out[current_LED] <= 7'b0000010; //6
+			 4'b0111 : LED_out[current_LED] <= 7'b1111000; //7
+			 4'b1000 : LED_out[current_LED] <= 7'b0000000; //8
+			 4'b1001 : LED_out[current_LED] <= 7'b0011000; //9
+			 4'b1010 : LED_out[current_LED] <= 7'b0001000; //10	A
+			 4'b1011 : LED_out[current_LED] <= 7'b0000011; //11	b
+			 4'b1100 : LED_out[current_LED] <= 7'b1000110; //12	C
+			 4'b1101 : LED_out[current_LED] <= 7'b0100001; //13	d
+			 4'b1110 : LED_out[current_LED] <= 7'b0000110; //14	E
+			 default : LED_out[current_LED] <= 7'b0001110; //Otherwise, F
 		 endcase
         
         case(current_LED)
             0: begin
                 IO_SSEG_SEL <= 4'b1110;
+                IO_SSEG <= LED_out[0];
             end
                 
             1: begin
-                IO_SSEG_SEL <= 4'b1101;            
+                IO_SSEG_SEL <= 4'b1101;
+                IO_SSEG <= LED_out[1];            
             end
             
             2: begin
                 IO_SSEG_SEL <= 4'b1011;
+                IO_SSEG <= LED_out[2];
             end
             
             3: begin
                 IO_SSEG_SEL <= 4'b0111;
+                IO_SSEG <= LED_out[3];
             end                
         endcase
-        IO_SSEG <= LED_out;
+//        
     end    
 endmodule
