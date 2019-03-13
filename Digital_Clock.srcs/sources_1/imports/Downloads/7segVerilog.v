@@ -9,13 +9,11 @@
 // Project Name: CombinationalLogic
 // Target Devices: Basys 3
 // Tool versions: 
-// Description: (a) Write a Verilog module that receives a 4-bit binary input from the 
-//						4 LSB dip IO_SWITCHitches and shows its equivalent hexadecimal value on the 
-//						seven segment display upon pushing a push button.
+// Description: Multiplexed SSEG display
 //
 // Dependencies: Basys3_Master.xdc
 //
-// Revision: 0.1
+// Revision: 0.3
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
@@ -26,18 +24,25 @@ module sevseg (
     output reg [6:0] IO_SSEG //6=g, 5=f, 4=e, 3=d, 2=c, 1=b, 0=a, acive low
     );
     
-    reg [1:0] current_LED;
+    reg [1:0] current_LED = 0;
     reg [3:0] four_bit_data;
     reg [7:0] LED_out;
-    	 
+    
+    reg [18:0] counter = 0; 
+    parameter max_counter = 500000; //cycle through SSEG's every 500000 clock cycles -> 1/200 seconds
+            	 
     always @(posedge clk) begin
-        current_LED[0] <= IO_SWITCH[0];
-        current_LED[1] <= IO_SWITCH[1];
+        if (counter < max_counter) begin
+            counter <= counter+1;
+        end else begin
+            current_LED <= current_LED + 1;
+            counter <= 0;
+        end
                 
-        four_bit_data[0] <= IO_SWITCH[2];
-        four_bit_data[1] <= IO_SWITCH[3];
-        four_bit_data[2] <= IO_SWITCH[4];
-        four_bit_data[4] <= IO_SWITCH[5];
+        four_bit_data[0] <= IO_SWITCH[0];
+        four_bit_data[1] <= IO_SWITCH[1];
+        four_bit_data[2] <= IO_SWITCH[2];
+        four_bit_data[3] <= IO_SWITCH[3];
         
 		case(four_bit_data) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
 			 4'b0000 : LED_out <= 7'b1000000; //0
