@@ -13,19 +13,18 @@
 //
 // Dependencies: Basys3_Master.xdc
 //
-// Revision: 0.4
+// Revision: 0.5
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
 module sevseg (
     input clk,
-    input IO_SWITCH[15:0],
+    input [3:0] four_bit_data [3:0],
     output reg [3:0] IO_SSEG_SEL, //IO Board 7-segment selector (left-to-right), active low
     output reg [6:0] IO_SSEG //6=g, 5=f, 4=e, 3=d, 2=c, 1=b, 0=a, acive low
     );
     
     reg [1:0] current_LED = 0;
-    reg [3:0] four_bit_data [3:0];
     reg [7:0] LED_out [3:0];
     
     reg [18:0] counter = 0; 
@@ -38,28 +37,7 @@ module sevseg (
             current_LED <= current_LED + 1;
             counter <= 0;
         end
-        
                 
-        four_bit_data[0][0] <= IO_SWITCH[0];
-        four_bit_data[1][0] <= IO_SWITCH[1];
-        four_bit_data[2][0] <= IO_SWITCH[2];
-        four_bit_data[3][0] <= IO_SWITCH[3];
-
-        four_bit_data[0][1] <= IO_SWITCH[4];
-        four_bit_data[1][1] <= IO_SWITCH[5];
-        four_bit_data[2][1] <= IO_SWITCH[6];
-        four_bit_data[3][1] <= IO_SWITCH[7];
-
-        four_bit_data[0][2] <= IO_SWITCH[8];
-        four_bit_data[1][2] <= IO_SWITCH[9];
-        four_bit_data[2][2] <= IO_SWITCH[10];
-        four_bit_data[3][2] <= IO_SWITCH[11];
-
-        four_bit_data[0][3] <= IO_SWITCH[12];
-        four_bit_data[1][3] <= IO_SWITCH[13];
-        four_bit_data[2][3] <= IO_SWITCH[14];
-        four_bit_data[3][3] <= IO_SWITCH[15];
-        
 		case(four_bit_data[current_LED]) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
 			 4'b0000 : LED_out[current_LED] <= 7'b1000000; //0
 			 4'b0001 : LED_out[current_LED] <= 7'b1111001; //1
@@ -99,7 +77,6 @@ module sevseg (
                 IO_SSEG_SEL <= 4'b0111;
                 IO_SSEG <= LED_out[3];
             end                
-        endcase
-//        
+        endcase        
     end    
 endmodule
