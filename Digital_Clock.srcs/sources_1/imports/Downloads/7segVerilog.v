@@ -15,36 +15,66 @@
 //
 // Dependencies: Basys3_Master.xdc
 //
-// Revision: 1.0
-// Revision 1.0 - Modified version of lab 2 for Basys 3 board
+// Revision: 0.1
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
 module sevseg (
-    input [15:0] IO_SWITCH, //IO Dipswitches S15,S14...,S1, active high
-	output [3:0] IO_SSEG_SEL, //IO Board 7-segment selector (left-to-right), active low
+    input clk,
+    input IO_SWITCH[15:0],
+    output reg [3:0] IO_SSEG_SEL, //IO Board 7-segment selector (left-to-right), active low
     output reg [6:0] IO_SSEG //6=g, 5=f, 4=e, 3=d, 2=c, 1=b, 0=a, acive low
     );
     
-	assign IO_SSEG_SEL = 4'b1110; //only use right-most 7-seg
-	 
-    always @*
-		case(IO_SWITCH[15:12]) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
-			 4'b0000 : IO_SSEG = 7'b1000000; //0
-			 4'b0001 : IO_SSEG = 7'b1111001; //1
-			 4'b0010 : IO_SSEG = 7'b0100100; //2
-			 4'b0011 : IO_SSEG = 7'b0110000; //3
-			 4'b0100 : IO_SSEG = 7'b0011001; //4
-			 4'b0101 : IO_SSEG = 7'b0010010; //5
-			 4'b0110 : IO_SSEG = 7'b0000010; //6
-			 4'b0111 : IO_SSEG = 7'b1111000; //7
-			 4'b1000 : IO_SSEG = 7'b0000000; //8
-			 4'b1001 : IO_SSEG = 7'b0011000; //9
-			 4'b1010 : IO_SSEG = 7'b0001000; //10	A
-			 4'b1011 : IO_SSEG = 7'b0000011; //11	b
-			 4'b1100 : IO_SSEG = 7'b1000110; //12	C
-			 4'b1101 : IO_SSEG = 7'b0100001; //13	d
-			 4'b1110 : IO_SSEG = 7'b0000110; //14	E
-			 default : IO_SSEG = 7'b0001110; //Otherwise, F
+    reg [1:0] current_LED;
+    reg [3:0] four_bit_data;
+    reg [7:0] LED_out;
+    	 
+    always @(posedge clk) begin
+        current_LED[0] <= IO_SWITCH[0];
+        current_LED[1] <= IO_SWITCH[1];
+                
+        four_bit_data[0] <= IO_SWITCH[2];
+        four_bit_data[1] <= IO_SWITCH[3];
+        four_bit_data[2] <= IO_SWITCH[4];
+        four_bit_data[4] <= IO_SWITCH[5];
+        
+		case(four_bit_data) //S15, S14, S13, S12 are the binary data bits, MSB->LSB
+			 4'b0000 : LED_out <= 7'b1000000; //0
+			 4'b0001 : LED_out <= 7'b1111001; //1
+			 4'b0010 : LED_out <= 7'b0100100; //2
+			 4'b0011 : LED_out <= 7'b0110000; //3
+			 4'b0100 : LED_out <= 7'b0011001; //4
+			 4'b0101 : LED_out <= 7'b0010010; //5
+			 4'b0110 : LED_out <= 7'b0000010; //6
+			 4'b0111 : LED_out <= 7'b1111000; //7
+			 4'b1000 : LED_out <= 7'b0000000; //8
+			 4'b1001 : LED_out <= 7'b0011000; //9
+			 4'b1010 : LED_out <= 7'b0001000; //10	A
+			 4'b1011 : LED_out <= 7'b0000011; //11	b
+			 4'b1100 : LED_out <= 7'b1000110; //12	C
+			 4'b1101 : LED_out <= 7'b0100001; //13	d
+			 4'b1110 : LED_out <= 7'b0000110; //14	E
+			 default : LED_out <= 7'b0001110; //Otherwise, F
 		 endcase
+        
+        case(current_LED)
+            0: begin
+                IO_SSEG_SEL <= 4'b1110;
+            end
+                
+            1: begin
+                IO_SSEG_SEL <= 4'b1101;            
+            end
+            
+            2: begin
+                IO_SSEG_SEL <= 4'b1011;
+            end
+            
+            3: begin
+                IO_SSEG_SEL <= 4'b0111;
+            end                
+        endcase
+        IO_SSEG <= LED_out;
+    end    
 endmodule

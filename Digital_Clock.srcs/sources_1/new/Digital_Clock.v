@@ -4,17 +4,16 @@
 // Engineer: 
 // 
 // Create Date: 03/13/2019 10:56:37 AM
-// Design Name: 
 // Module Name: Digital_Clock
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Digital Clock
+// Target Devices: Basys 3
+// Description: Digital Clock for the Basys 3 FPGA
 // 
 // Dependencies: 
+//      Basys3_Master_Customized.xdc
+//      7segVerilog.v
 // 
-// Revision:
-// Revision 0.01 - File Created
+// Revision: 0.1
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
