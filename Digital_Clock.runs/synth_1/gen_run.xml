@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1552503795">
-  <File Type="PA-TCL" Name="sevseg.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="sevseg_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="sevseg_reports.tcl"/>
-  <File Type="RDS-RDS" Name="sevseg.vds"/>
-  <File Type="RDS-UTIL" Name="sevseg_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="sevseg_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="sevseg.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="sevseg_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="sevseg_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1552505697">
+  <File Type="PA-TCL" Name="Digital_Clock.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Digital_Clock_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Digital_Clock_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Digital_Clock.vds"/>
+  <File Type="RDS-UTIL" Name="Digital_Clock_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Digital_Clock_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Digital_Clock.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Digital_Clock_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Digital_Clock_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/Downloads/7segVerilog.v">
@@ -22,7 +22,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/Digital_Clock.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -30,7 +29,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="sevseg"/>
+      <Option Name="TopModule" Val="Digital_Clock"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

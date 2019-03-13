@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log sevseg.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source sevseg.tcl
+EAStep vivado -log Digital_Clock.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Digital_Clock.tcl

@@ -111,16 +111,16 @@ set_property PACKAGE_PIN W4 [get_ports {IO_SSEG_SEL[3]}]
 
 
 ##Buttons; 1 = pressed, 0 = not pressed
-#set_property PACKAGE_PIN U18 [get_ports IO_BTN_C]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_C]
-#set_property PACKAGE_PIN T18 [get_ports IO_BTN_U]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_U]
-#set_property PACKAGE_PIN W19 [get_ports IO_BTN_L]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_L]
-#set_property PACKAGE_PIN T17 [get_ports IO_BTN_R]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_R]
-#set_property PACKAGE_PIN U17 [get_ports IO_BTN_D]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_D]
+set_property PACKAGE_PIN U18 [get_ports IO_BTN_C]						
+	set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_C]
+set_property PACKAGE_PIN T18 [get_ports IO_BTN_U]						
+	set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_U]
+set_property PACKAGE_PIN W19 [get_ports IO_BTN_L]						
+	set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_L]
+set_property PACKAGE_PIN T17 [get_ports IO_BTN_R]						
+	set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_R]
+set_property PACKAGE_PIN U17 [get_ports IO_BTN_D]						
+	set_property IOSTANDARD LVCMOS33 [get_ports IO_BTN_D]
  
 
 
