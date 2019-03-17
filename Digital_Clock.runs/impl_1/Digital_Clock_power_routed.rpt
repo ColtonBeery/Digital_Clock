@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Sat Mar 16 22:12:54 2019
+| Date             : Sat Mar 16 22:23:59 2019
 | Host             : DellG5Laptop running 64-bit major release  (build 9200)
 | Command          : report_power -file Digital_Clock_power_routed.rpt -pb Digital_Clock_power_summary_routed.pb -rpx Digital_Clock_power_routed.rpx
 | Design           : Digital_Clock
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      161 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       50 |     20800 |            0.24 |
-|   Register     |    <0.001 |       84 |     41600 |            0.20 |
-|   CARRY4       |    <0.001 |        5 |      8150 |            0.06 |
+| Slice Logic    |    <0.001 |      188 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       55 |     20800 |            0.26 |
+|   Register     |    <0.001 |      101 |     41600 |            0.24 |
+|   CARRY4       |    <0.001 |       10 |      8150 |            0.12 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      118 |       --- |             --- |
+| Signals        |    <0.001 |      144 |       --- |             --- |
 | I/O            |     0.006 |       13 |       106 |           12.26 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.079 |          |           |                 |

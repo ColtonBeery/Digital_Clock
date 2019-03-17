@@ -3,7 +3,7 @@
 // Company: SDSU
 // Engineer: Colton Beery
 //
-// Revision Date: 03/16/2019 9:49 PM
+// Revision Date: 03/16/2019 10:25 PM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -31,8 +31,12 @@ module Digital_Clock(
     output IO_SSEG_DP,
     output [3:0] IO_SSEG_SEL
     );
-
-//    reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
+    
+    /* Timing parameters */
+    reg [31:0] counter = 0;
+    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+    
+    /* Data registers */
     reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
     sevseg display(.clk(clk),
         .binary_input_0(Minutes),
@@ -45,7 +49,13 @@ module Digital_Clock(
     always @(posedge clk) begin
         // count to 60 seconds, increment minutes, then reset seconds to 0
             // count to 10 Seconds, increment Tens_of_Seconds, then reset Seconds to 0
-            Seconds <= Seconds + 1;
+            if (counter < max_counter) begin
+                counter <= counter + 1;
+            end else begin
+                counter <= 0;
+                Seconds <= Seconds + 1;
+            end
+            
             if (Seconds == 10) begin
                 Seconds <= 0;
                 Tens_of_Seconds <= Tens_of_Seconds + 1;

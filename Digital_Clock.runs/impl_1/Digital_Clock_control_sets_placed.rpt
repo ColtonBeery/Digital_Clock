@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Mar 16 22:12:27 2019
+| Date         : Sat Mar 16 22:23:37 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Digital_Clock_control_sets_placed.rpt
 | Design       : Digital_Clock
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    12 |
-| Unused register locations in slices containing registers |    36 |
+| Number of unique control sets                            |    13 |
+| Unused register locations in slices containing registers |    43 |
 +----------------------------------------------------------+-------+
 
 
@@ -37,7 +37,7 @@ Table of Contents
 |      4 |            6 |
 |      7 |            4 |
 |     13 |            1 |
-|    16+ |            1 |
+|    16+ |            2 |
 +--------+--------------+
 
 
@@ -49,31 +49,32 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |              13 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              23 |            6 |
-| Yes          | No                    | No                     |              48 |           13 |
+| No           | Yes                   | No                     |              36 |           10 |
+| Yes          | No                    | No                     |              48 |           12 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | Yes                   | No                     |               4 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-------------------------------+--------------------+------------------+----------------+
-|  Clock Signal  |         Enable Signal         |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
-+----------------+-------------------------------+--------------------+------------------+----------------+
-|  clk_IBUF_BUFG |                               | Seconds[3]_i_1_n_0 |                1 |              4 |
-|  clk_IBUF_BUFG | Minutes0                      |                    |                1 |              4 |
-|  clk_IBUF_BUFG | Tens_of_Seconds0              |                    |                1 |              4 |
-|  clk_IBUF_BUFG | Hours[3]_i_1_n_0              |                    |                2 |              4 |
-|  clk_IBUF_BUFG | Tens_of_Hours[3]_i_1_n_0      |                    |                2 |              4 |
-|  clk_IBUF_BUFG | Tens_of_Minutes0              |                    |                1 |              4 |
-|  clk_IBUF_BUFG | display/LED_out[3][6]_i_1_n_0 |                    |                1 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[1]        |                    |                1 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[0]        |                    |                2 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[2]        |                    |                2 |              7 |
-|  clk_IBUF_BUFG |                               |                    |                4 |             13 |
-|  clk_IBUF_BUFG |                               | display/clear      |                5 |             19 |
-+----------------+-------------------------------+--------------------+------------------+----------------+
++----------------+-------------------------------+-----------------------+------------------+----------------+
+|  Clock Signal  |         Enable Signal         |    Set/Reset Signal   | Slice Load Count | Bel Load Count |
++----------------+-------------------------------+-----------------------+------------------+----------------+
+|  clk_IBUF_BUFG | Tens_of_Hours[3]_i_1_n_0      |                       |                2 |              4 |
+|  clk_IBUF_BUFG | Hours[3]_i_1_n_0              |                       |                1 |              4 |
+|  clk_IBUF_BUFG | Minutes0                      |                       |                2 |              4 |
+|  clk_IBUF_BUFG | Tens_of_Seconds0              |                       |                1 |              4 |
+|  clk_IBUF_BUFG | Seconds[3]_i_2_n_0            | Seconds[3]_i_1_n_0    |                1 |              4 |
+|  clk_IBUF_BUFG | Tens_of_Minutes0              |                       |                1 |              4 |
+|  clk_IBUF_BUFG | display/LED_out_reg[0]        |                       |                1 |              7 |
+|  clk_IBUF_BUFG | display/LED_out[3][6]_i_1_n_0 |                       |                1 |              7 |
+|  clk_IBUF_BUFG | display/LED_out_reg[1]        |                       |                1 |              7 |
+|  clk_IBUF_BUFG | display/LED_out_reg[2]        |                       |                2 |              7 |
+|  clk_IBUF_BUFG |                               |                       |                4 |             13 |
+|  clk_IBUF_BUFG |                               | counter[0]_i_1__0_n_0 |                5 |             17 |
+|  clk_IBUF_BUFG |                               | display/clear         |                5 |             19 |
++----------------+-------------------------------+-----------------------+------------------+----------------+
 
 
