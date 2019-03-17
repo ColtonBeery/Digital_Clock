@@ -32,8 +32,8 @@ module Digital_Clock(
     output [3:0] IO_SSEG_SEL
     );
     
+//    reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
     reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
-    
     sevseg display(.clk(clk), 
         .binary_input_0(Minutes), 
         .binary_input_1(Tens_of_Minutes), 
@@ -43,24 +43,20 @@ module Digital_Clock(
         .IO_SSEG(IO_SSEG));
     
     always @(posedge clk) begin
-        Minutes[0] <= IO_SWITCH[0];
-        Minutes[1] <= IO_SWITCH[1];
-        Minutes[2] <= IO_SWITCH[2];
-        Minutes[3] <= IO_SWITCH[3];
+        //Minutes <= 1;
+         Minutes <= IO_SWITCH[3:0];
 
-        Tens_of_Minutes[0] <= IO_SWITCH[4];
-        Tens_of_Minutes[1] <= IO_SWITCH[5];
-        Tens_of_Minutes[2] <= IO_SWITCH[6];
-        Tens_of_Minutes[3] <= IO_SWITCH[7];
+        //Tens_of_Minutes <= 2;
+        Tens_of_Minutes <= IO_SWITCH[7:4];
+        
+        //Hours <= 3;
+        Hours <= IO_SWITCH[11:8];
 
-        Hours[0] <= IO_SWITCH[8];
-        Hours[1] <= IO_SWITCH[9];
-        Hours[2] <= IO_SWITCH[10];
-        Hours[3] <= IO_SWITCH[11];
-
-        Tens_of_Hours[0] <= IO_SWITCH[12];
+        /*Tens_of_Hours[0] <= IO_SWITCH[12];
         Tens_of_Hours[1] <= IO_SWITCH[13];
         Tens_of_Hours[2] <= IO_SWITCH[14];
-        Tens_of_Hours[3] <= IO_SWITCH[15];
+        Tens_of_Hours[3] <= IO_SWITCH[15];*/
+        //Tens_of_Hours <= 4;
+        Tens_of_Hours <= IO_SWITCH[15:12];
     end
 endmodule
