@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Mar 16 21:31:07 2019
+| Date         : Sat Mar 16 22:11:48 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Digital_Clock_utilization_synth.rpt -pb Digital_Clock_utilization_synth.pb
 | Design       : Digital_Clock
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   27 |     0 |     20800 |  0.13 |
-|   LUT as Logic          |   27 |     0 |     20800 |  0.13 |
+| Slice LUTs*             |   50 |     0 |     20800 |  0.24 |
+|   LUT as Logic          |   50 |     0 |     20800 |  0.24 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   76 |     0 |     41600 |  0.18 |
-|   Register as Flip Flop |   76 |     0 |     41600 |  0.18 |
+| Slice Registers         |   84 |     0 |     41600 |  0.20 |
+|   Register as Flip Flop |   84 |     0 |     41600 |  0.20 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 76    |          Yes |       Reset |            - |
+| 84    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   29 |     0 |       106 | 27.36 |
+| Bonded IOB                  |   13 |     0 |       106 | 12.26 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -149,17 +149,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   76 |        Flop & Latch |
-| IBUF     |   17 |                  IO |
+| FDRE     |   84 |        Flop & Latch |
+| LUT4     |   31 |                 LUT |
+| LUT6     |   12 |                 LUT |
 | OBUF     |   11 |                  IO |
-| LUT6     |   11 |                 LUT |
-| LUT4     |   10 |                 LUT |
-| LUT2     |    9 |                 LUT |
+| LUT2     |   10 |                 LUT |
+| LUT5     |    9 |                 LUT |
 | CARRY4   |    5 |          CarryLogic |
+| LUT3     |    4 |                 LUT |
+| LUT1     |    2 |                 LUT |
 | OBUFT    |    1 |                  IO |
-| LUT5     |    1 |                 LUT |
-| LUT3     |    1 |                 LUT |
-| LUT1     |    1 |                 LUT |
+| IBUF     |    1 |                  IO |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
