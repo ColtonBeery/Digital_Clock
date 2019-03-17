@@ -13,13 +13,16 @@
 //
 // Dependencies: Basys3_Master.xdc
 //
-// Revision: 0.5
+// Revision: 0.6
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
 module sevseg (
     input clk,
-    input [3:0] four_bit_data [3:0],
+    input [3:0] binary_input_0, //workaround because apparently verilog doesn't allow 2D arrays as input
+    input [3:0] binary_input_1,
+    input [3:0] binary_input_2,
+    input [3:0] binary_input_3,
     output reg [3:0] IO_SSEG_SEL, //IO Board 7-segment selector (left-to-right), active low
     output reg [6:0] IO_SSEG //6=g, 5=f, 4=e, 3=d, 2=c, 1=b, 0=a, acive low
     );
@@ -29,7 +32,13 @@ module sevseg (
     
     reg [18:0] counter = 0; 
     parameter max_counter = 500000; //cycle through SSEG's every 500000 clock cycles -> 1/200 seconds
-            	 
+    
+    wire [3:0] four_bit_data [3:0]; //workaround because apparently verilog doesn't allow 2D arrays as input
+    assign  four_bit_data[0] = binary_input_0;
+    assign  four_bit_data[1] = binary_input_1;
+    assign  four_bit_data[2] = binary_input_2;
+    assign  four_bit_data[3] = binary_input_3;
+                      	 
     always @(posedge clk) begin
         if (counter < max_counter) begin
             counter <= counter+1;
