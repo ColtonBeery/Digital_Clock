@@ -13,5 +13,5 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> Current Progress </summary>
-	I'm currently working on getting basic seven-segment-display multiplexing working at 50Hz. 
+	Basic seven-segment-display multiplexing works at 50Hz. 
 </details>
