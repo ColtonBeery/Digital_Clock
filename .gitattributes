@@ -1,2 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Hide cache and other Vivado files from Github Linguist
+Digital_Clock.cache/* linguist-detectable=false
+Digital_Clock.hw/* linguist-detectable=false
+Digital_Clock.ip_user_files/* linguist-detectable=false
+Digital_Clock.runs/* linguist-detectable=false
+Digital_Clock.sim/* linguist-detectable=false

@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
+// Company: SDSU
+// Engineer: Colton Beery
 //
-// Create Date: 03/13/2019 10:56:37 AM
+// Revision Date: 03/16/2019 9:30 PM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -13,7 +13,7 @@
 //      Basys3_Master_Customized.xdc
 //      7segVerilog.v
 //
-// Revision: 0.1
+// Revision: 0.2
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
@@ -43,20 +43,10 @@ module Digital_Clock(
         .IO_SSEG(IO_SSEG));
 
     always @(posedge clk) begin
-        //Minutes <= 1;
-         Minutes <= IO_SWITCH[3:0];
-
-        //Tens_of_Minutes <= 2;
+        /* SSEG Multiplexing Debug Code */
+        Minutes <= IO_SWITCH[3:0];
         Tens_of_Minutes <= IO_SWITCH[7:4];
-
-        //Hours <= 3;
         Hours <= IO_SWITCH[11:8];
-
-        /*Tens_of_Hours[0] <= IO_SWITCH[12];
-        Tens_of_Hours[1] <= IO_SWITCH[13];
-        Tens_of_Hours[2] <= IO_SWITCH[14];
-        Tens_of_Hours[3] <= IO_SWITCH[15];*/
-        //Tens_of_Hours <= 4;
         Tens_of_Hours <= IO_SWITCH[15:12];
     end
 endmodule
