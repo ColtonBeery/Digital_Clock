@@ -35,7 +35,8 @@ module Digital_Clock(
     parameter max_counter = 25000000; // 100 MHz / 25,000,000 = 4 Hz
     
     /* Data registers */
-    reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
+    //reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
+    reg [5:0] Hours, Minutes, Seconds = 0;
     wire [3:0] Digit_0,Digit_1, Digit_2, Digit_3; 
     reg [0:0] current_bit = 0; //currently only minutes and hours
     /*sevseg display(.clk(clk),
@@ -52,10 +53,10 @@ module Digital_Clock(
         .binary_input_3(Digit_3),
         .IO_SSEG_SEL(IO_SSEG_SEL),
         .IO_SSEG(IO_SSEG));
-    assign Digit_0 = Minutes;
-    assign Digit_1 = Tens_of_Minutes;
-    assign Digit_2 = Hours;
-    assign Digit_3 = Tens_of_Hours; 
+    assign Digit_0 = Minutes % 10;
+    assign Digit_1 = Minutes / 10;
+    assign Digit_2 = Hours % 10;
+    assign Digit_3 = Hours / 10;
     /* Modes */
     parameter Hours_And_Minutes = 1'b0;
     parameter Set_Clock = 1'b1;
@@ -113,50 +114,21 @@ module Digital_Clock(
                         end
                     end                        
                 endcase               
-                end
-                    
+                end                    
             end
         endcase
         
         /* Military Time Clock Stuff */
-        begin       
-        // count to 60 seconds, increment minutes, then reset seconds to 0
-            // count to 10 Seconds, increment Tens_of_Seconds, then reset Seconds to 0
-           if (Seconds == 10) begin
+        if (Seconds >= 60) begin
                 Seconds <= 0;
-                Tens_of_Seconds <= Tens_of_Seconds + 1;
-            end
-            // count to 6 Tens_of_Seconds, increment Minutes, then reset Tens_of_Seconds to 0
-            if (Tens_of_Seconds == 6) begin
-                Tens_of_Seconds <= 0;
                 Minutes <= Minutes + 1;
-            end
-        // count to 60 minutes, increment hours, then reset minutes to 0
-            // count to 10 Minutes, increment Tens_of_Minutes, then reset Minutes to 0
-            if (Minutes == 10) begin
-                Minutes <= 0;
-                Tens_of_Minutes <= Tens_of_Minutes + 1;
-            end
-            // count to 6 Tens_of_Minutes, increment Hours, then reset Tens_of_Minutes to 0
-            if (Tens_of_Minutes == 6) begin
-                Tens_of_Minutes <= 0;
-                Hours <= Hours + 1;
-            end
-        // count to 24 hours, then reset everything to 0
-            // count to 10 Hours, increment Tens_of_Hours, then reset Hours to 0
-            if (Hours == 10) begin
-                Hours <= 0;
-                Tens_of_Hours <= Tens_of_Hours + 1;
-            end
-            // count to 2 Tens_of_Hours. if Tens_of_Hours = 2 and Hours = 4, then reset the time
-            if (Tens_of_Hours == 2) begin
-                if (Hours == 4) begin
-                    Hours <= 0;
-                    Tens_of_Hours <= 0;
-                end
-            end
         end
-        
-        
+        if (Minutes >= 60) begin
+                Minutes <= 0;
+                Hours <= Hours + 1;
+        end
+        if (Hours >= 24) begin
+                Hours <= 0;
+        end
     end
 endmodule
