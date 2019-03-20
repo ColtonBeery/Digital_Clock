@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 20 11:52:16 2019
+| Date         : Wed Mar 20 12:10:51 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Digital_Clock_control_sets_placed.rpt
 | Design       : Digital_Clock
@@ -47,12 +47,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              16 |            9 |
+| No           | No                    | No                     |              16 |            8 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              51 |           13 |
-| Yes          | No                    | No                     |              28 |            4 |
+| Yes          | No                    | No                     |              28 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              17 |            5 |
+| Yes          | Yes                   | No                     |              17 |            7 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -64,12 +64,12 @@ Table of Contents
 +----------------+------------------------+-------------------------------+------------------+----------------+
 |  clk_IBUF_BUFG | Minutes[5]_i_2_n_0     | Minutes[5]_i_1_n_0            |                2 |              5 |
 |  clk_IBUF_BUFG | Hours[5]_i_2_n_0       | clear                         |                2 |              6 |
-|  clk_IBUF_BUFG | Seconds[5]_i_2_n_0     | Seconds[5]_i_1_n_0            |                1 |              6 |
+|  clk_IBUF_BUFG | Seconds[5]_i_2_n_0     | Seconds[5]_i_1_n_0            |                3 |              6 |
+|  clk_IBUF_BUFG | display/LED_out_reg[3] |                               |                2 |              7 |
 |  clk_IBUF_BUFG | display/LED_out_reg[2] |                               |                1 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[1] |                               |                1 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[3] |                               |                1 |              7 |
 |  clk_IBUF_BUFG | display/LED_out_reg[0] |                               |                1 |              7 |
-|  clk_IBUF_BUFG |                        |                               |                9 |             16 |
+|  clk_IBUF_BUFG | display/LED_out_reg[1] |                               |                2 |              7 |
+|  clk_IBUF_BUFG |                        |                               |                8 |             16 |
 |  clk_IBUF_BUFG |                        | display/counter[0]_i_1__0_n_0 |                5 |             19 |
 |  clk_IBUF_BUFG |                        | counter[0]_i_1_n_0            |                8 |             32 |
 +----------------+------------------------+-------------------------------+------------------+----------------+

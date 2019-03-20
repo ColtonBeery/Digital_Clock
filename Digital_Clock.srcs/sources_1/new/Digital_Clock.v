@@ -30,8 +30,8 @@ module Digital_Clock(
     
     /* Timing parameters */
     reg [31:0] counter = 0;
-    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
-    //parameter max_counter = 25000000; // 100 MHz / 25,000,000 = 4 Hz
+//    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+      parameter max_counter = 100000000; // 100 MHz / 100000000 = 1 Hz => 1 second per second
     
     /* Data registers */
     reg [5:0] Hours, Minutes, Seconds = 0;
