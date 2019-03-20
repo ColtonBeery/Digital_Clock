@@ -19,9 +19,13 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> How to Use  </summary>
+
 + Push center button to swap between Military Clock mode and Set Time mode.  
+
 + When in set time mode:  
-++ Push left/right buttons to swap between setting minutes and hours.  
-++ Push up/down buttons to increment and decrement time, respectively
+
+	+ Push left/right buttons to swap between setting minutes and hours.  
+
+	+ Push up/down buttons to increment and decrement time, respectively.
 
 </details>
