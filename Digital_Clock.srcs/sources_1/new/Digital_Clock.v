@@ -36,15 +36,26 @@ module Digital_Clock(
     
     /* Data registers */
     reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
+    wire [3:0] Digit_0,Digit_1, Digit_2, Digit_3; 
     reg [0:0] current_bit = 0; //currently only minutes and hours
-    sevseg display(.clk(clk),
+    /*sevseg display(.clk(clk),
         .binary_input_0(Minutes),
         .binary_input_1(Tens_of_Minutes),
         .binary_input_2(Hours),
         .binary_input_3(Tens_of_Hours),
         .IO_SSEG_SEL(IO_SSEG_SEL),
+        .IO_SSEG(IO_SSEG));*/
+    sevseg display(.clk(clk),
+        .binary_input_0(Digit_0),
+        .binary_input_1(Digit_1),
+        .binary_input_2(Digit_2),
+        .binary_input_3(Digit_3),
+        .IO_SSEG_SEL(IO_SSEG_SEL),
         .IO_SSEG(IO_SSEG));
-    
+    assign Digit_0 = Minutes;
+    assign Digit_1 = Tens_of_Minutes;
+    assign Digit_2 = Hours;
+    assign Digit_3 = Tens_of_Hours; 
     /* Modes */
     parameter Hours_And_Minutes = 1'b0;
     parameter Set_Clock = 1'b1;
@@ -106,7 +117,9 @@ module Digital_Clock(
                     
             end
         endcase
-               
+        
+        /* Military Time Clock Stuff */
+        begin       
         // count to 60 seconds, increment minutes, then reset seconds to 0
             // count to 10 Seconds, increment Tens_of_Seconds, then reset Seconds to 0
            if (Seconds == 10) begin
@@ -142,5 +155,8 @@ module Digital_Clock(
                     Tens_of_Hours <= 0;
                 end
             end
+        end
+        
+        
     end
 endmodule

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1553101909">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1553102630">
   <File Type="BITSTR-BMM" Name="Digital_Clock_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Digital_Clock_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Digital_Clock_timing_summary_init.rpt"/>

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 20 10:12:43 2019
+| Date         : Wed Mar 20 10:24:46 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Digital_Clock_control_sets_placed.rpt
 | Design       : Digital_Clock
@@ -62,15 +62,15 @@ Table of Contents
 |  Clock Signal  |        Enable Signal       | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +----------------+----------------------------+------------------+------------------+----------------+
 |  clk_IBUF_BUFG | Hours[3]_i_1_n_0           |                  |                1 |              4 |
-|  clk_IBUF_BUFG | Minutes[3]_i_1_n_0         |                  |                1 |              4 |
-|  clk_IBUF_BUFG | Tens_of_Seconds            |                  |                1 |              4 |
 |  clk_IBUF_BUFG | Seconds[3]_i_1_n_0         |                  |                1 |              4 |
+|  clk_IBUF_BUFG | Tens_of_Seconds            |                  |                1 |              4 |
+|  clk_IBUF_BUFG | Minutes[3]_i_1_n_0         |                  |                1 |              4 |
 |  clk_IBUF_BUFG | Tens_of_Hours[3]_i_1_n_0   |                  |                2 |              4 |
 |  clk_IBUF_BUFG | Tens_of_Minutes[3]_i_1_n_0 |                  |                1 |              4 |
-|  clk_IBUF_BUFG | display/LED_out_reg[2]     |                  |                1 |              7 |
 |  clk_IBUF_BUFG | display/LED_out_reg[3]     |                  |                2 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[1]     |                  |                2 |              7 |
 |  clk_IBUF_BUFG | display/LED_out_reg[0]     |                  |                1 |              7 |
+|  clk_IBUF_BUFG | display/LED_out_reg[1]     |                  |                2 |              7 |
+|  clk_IBUF_BUFG | display/LED_out_reg[2]     |                  |                1 |              7 |
 |  clk_IBUF_BUFG |                            | display/clear    |                5 |             19 |
 |  clk_IBUF_BUFG |                            |                  |               13 |             40 |
 +----------------+----------------------------+------------------+------------------+----------------+
