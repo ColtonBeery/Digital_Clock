@@ -14,41 +14,20 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11592 
+INFO: Helper process launched with PID 1360 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 359.875 ; gain = 101.621
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 359.559 ; gain = 95.980
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'Digital_Clock' [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/new/Digital_Clock.v:22]
+INFO: [Synth 8-6157] synthesizing module 'Digital_Clock' [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/new/Digital_Clock.v:25]
 	Parameter max_counter bound to: 100000 - type: integer 
+	Parameter Hours_And_Minutes bound to: 1'b0 
+	Parameter Set_Clock bound to: 1'b1 
 INFO: [Synth 8-6157] synthesizing module 'sevseg' [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/imports/Downloads/7segVerilog.v:20]
 	Parameter max_counter bound to: 500000 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'sevseg' (1#1) [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/imports/Downloads/7segVerilog.v:20]
-WARNING: [Synth 8-3848] Net IO_SSEG_DP in module/entity Digital_Clock does not have driver. [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/new/Digital_Clock.v:31]
-INFO: [Synth 8-6155] done synthesizing module 'Digital_Clock' (2#1) [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/new/Digital_Clock.v:22]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SSEG_DP
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_C
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_U
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_L
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_R
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_D
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[15]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[14]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[13]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[12]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[11]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[10]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[9]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[8]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[7]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[6]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[5]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[4]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[3]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[2]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[1]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[0]
+INFO: [Synth 8-6155] done synthesizing module 'Digital_Clock' (2#1) [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/sources_1/new/Digital_Clock.v:25]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 415.254 ; gain = 157.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 415.445 ; gain = 151.867
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -61,10 +40,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 415.254 ; gain = 157.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 415.445 ; gain = 151.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 415.254 ; gain = 157.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 415.445 ; gain = 151.867
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -72,45 +51,46 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc]
+WARNING: [Vivado 12-584] No ports matched 'IO_SSEG_DP'. [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'IO_SSEG_DP'. [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Digital_Clock_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Digital_Clock_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 748.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 749.133 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 748.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 749.133 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 748.738 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 748.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 749.133 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 749.133 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "LED_out_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "LED_out_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "LED_out_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "LED_out_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Tens_of_Seconds" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Minutes" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Tens_of_Minutes" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Hours" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Tens_of_Hours" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -123,19 +103,22 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      4 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 6     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
 	                7 Bit    Registers := 5     
-	                4 Bit    Registers := 7     
+	                6 Bit    Registers := 3     
+	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
 	   4 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 9     
+	   7 Input      6 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 8     
-	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 10    
-	   3 Input      1 Bit        Muxes := 4     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 21    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -146,14 +129,16 @@ Hierarchical RTL Component report
 Module Digital_Clock 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      4 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 6     
 +---Registers : 
-	                4 Bit    Registers := 6     
+	                6 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      4 Bit        Muxes := 8     
-	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
-	   3 Input      1 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 9     
+	   7 Input      6 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 17    
 Module sevseg 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -186,31 +171,8 @@ INFO: [Synth 8-5544] ROM "display/LED_out_reg[3]" won't be mapped to Block RAM b
 INFO: [Synth 8-5544] ROM "display/LED_out_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "display/LED_out_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "display/LED_out_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "Tens_of_Hours" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SSEG_DP
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_C
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_U
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_L
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_R
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_BTN_D
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[15]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[14]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[13]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[12]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[11]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[10]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[9]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[8]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[7]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[6]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[5]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[4]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[3]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[2]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[1]
-WARNING: [Synth 8-3331] design Digital_Clock has unconnected port IO_SWITCH[0]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -222,13 +184,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 748.738 ; gain = 490.484
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 749.133 ; gain = 485.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 751.645 ; gain = 493.391
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 764.941 ; gain = 501.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -240,7 +202,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -264,7 +226,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -277,7 +239,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -289,25 +251,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -324,48 +286,47 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |    10|
-|3     |LUT1   |     3|
-|4     |LUT2   |    10|
-|5     |LUT3   |     4|
-|6     |LUT4   |    33|
-|7     |LUT5   |    10|
-|8     |LUT6   |    13|
-|9     |FDRE   |   101|
-|10    |IBUF   |     1|
+|2     |CARRY4 |    13|
+|3     |LUT1   |     4|
+|4     |LUT2   |    13|
+|5     |LUT3   |    14|
+|6     |LUT4   |    17|
+|7     |LUT5   |    18|
+|8     |LUT6   |    34|
+|9     |FDRE   |   112|
+|10    |IBUF   |     6|
 |11    |OBUF   |    11|
-|12    |OBUFT  |     1|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+----------+-------+------+
 |      |Instance  |Module |Cells |
 +------+----------+-------+------+
-|1     |top       |       |   198|
-|2     |  display |sevseg |    98|
+|1     |top       |       |   243|
+|2     |  display |sevseg |   108|
 +------+----------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 773.973 ; gain = 510.395
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 22 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 761.379 ; gain = 169.641
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 761.379 ; gain = 503.125
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 773.973 ; gain = 176.707
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 773.973 ; gain = 510.395
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 762.262 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 773.973 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-30 Infos, 45 Warnings, 0 Critical Warnings and 0 Errors encountered.
+24 Infos, 2 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 762.262 ; gain = 506.637
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 762.262 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 773.973 ; gain = 510.395
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 773.973 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.runs/synth_1/Digital_Clock.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Digital_Clock_utilization_synth.rpt -pb Digital_Clock_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 16 22:23:04 2019...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 20 11:41:43 2019...
