@@ -30,11 +30,12 @@ module Digital_Clock(
     
     /* Timing parameters */
     reg [31:0] counter = 0;
-    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+    //parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+    parameter max_counter = 100000000; // 100 MHz / 100,000,000 = 1 Hz
     
     /* Data registers */
     reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
-    reg [0:0] current_bit; //currently only minutes and hours
+    reg [0:0] current_bit = 0; //currently only minutes and hours
     sevseg display(.clk(clk),
         .binary_input_0(Minutes),
         .binary_input_1(Tens_of_Minutes),
@@ -46,31 +47,33 @@ module Digital_Clock(
     /* Modes */
     parameter Hours_And_Minutes = 1'b0;
     parameter Set_Clock = 1'b1;
-    reg [0:0] Current_Mode = Hours_And_Minutes;
+    reg [0:0] Current_Mode = Set_Clock;
     
     always @(posedge clk) begin
         case(Current_Mode)
             Hours_And_Minutes: begin
                 if (IO_BTN_C) begin
                     Current_Mode <= Set_Clock;
+                    counter <= 0;
+                    current_bit <= 0;
+                    Seconds <= 0; //currently just sets seconds to 0. I'll work on this after I get setting minutes and hours working.
                 end
                 if (counter < max_counter) begin
                     counter <= counter + 1;
                 end else begin
                     counter <= 0;
                     Seconds <= Seconds + 1;
-                end
-                
-                end
-            
+                end                
+            end
             Set_Clock: begin
-                counter <= 0;
-                current_bit <= 0;
-                Seconds <= 0; //currently just sets seconds to 0. I'll work on this after I get setting minutes and hours working.                 
                 if (IO_BTN_C) begin //center button used to commit time set
                     Current_Mode <= Hours_And_Minutes;
                 end 
-                case (current_bit)
+                if (counter < max_counter) begin
+                    counter <= counter + 1;
+                end else begin
+                    counter <= 0;
+                    case (current_bit)
                     1'b00: begin //minutes
                         if (IO_BTN_U) begin
                             Minutes <= Minutes + 1;
@@ -93,8 +96,9 @@ module Digital_Clock(
                             current_bit <= 0;
                         end
                     end                        
-                endcase
-                
+                endcase               
+                end
+                    
             end
         endcase
                

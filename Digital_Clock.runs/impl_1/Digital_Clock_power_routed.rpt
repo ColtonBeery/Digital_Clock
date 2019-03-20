@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Wed Mar 20 09:36:21 2019
+| Date             : Wed Mar 20 09:56:13 2019
 | Host             : DellG5Laptop running 64-bit major release  (build 9200)
 | Command          : report_power -file Digital_Clock_power_routed.rpt -pb Digital_Clock_power_summary_routed.pb -rpx Digital_Clock_power_routed.rpx
 | Design           : Digital_Clock
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.079        |
+| Total On-Chip Power (W)  | 0.080        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.008        |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      194 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       59 |     20800 |            0.28 |
-|   Register     |    <0.001 |      103 |     41600 |            0.25 |
-|   CARRY4       |    <0.001 |       10 |      8150 |            0.12 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      237 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       90 |     20800 |            0.43 |
+|   Register     |    <0.001 |      113 |     41600 |            0.27 |
+|   CARRY4       |    <0.001 |       12 |      8150 |            0.15 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      153 |       --- |             --- |
-| I/O            |     0.006 |       16 |       106 |           15.09 |
+| Signals        |    <0.001 |      171 |       --- |             --- |
+| I/O            |     0.006 |       17 |       106 |           16.04 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.079 |          |           |                 |
+| Total          |     0.080 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
