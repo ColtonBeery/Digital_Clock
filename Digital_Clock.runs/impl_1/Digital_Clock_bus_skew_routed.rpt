@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 20 10:42:29 2019
+| Date         : Wed Mar 20 11:33:01 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_bus_skew -warn_on_violation -file Digital_Clock_bus_skew_routed.rpt -pb Digital_Clock_bus_skew_routed.pb -rpx Digital_Clock_bus_skew_routed.rpx
 | Design       : Digital_Clock

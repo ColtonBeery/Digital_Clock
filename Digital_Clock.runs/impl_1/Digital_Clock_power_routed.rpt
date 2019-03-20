@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Wed Mar 20 10:42:29 2019
+| Date             : Wed Mar 20 11:33:01 2019
 | Host             : DellG5Laptop running 64-bit major release  (build 9200)
 | Command          : report_power -file Digital_Clock_power_routed.rpt -pb Digital_Clock_power_summary_routed.pb -rpx Digital_Clock_power_routed.rpx
 | Design           : Digital_Clock
@@ -52,13 +52,13 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      231 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       89 |     20800 |            0.43 |
-|   Register     |    <0.001 |      105 |     41600 |            0.25 |
-|   CARRY4       |    <0.001 |       12 |      8150 |            0.15 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      229 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       80 |     20800 |            0.38 |
+|   CARRY4       |    <0.001 |       13 |      8150 |            0.16 |
+|   Register     |    <0.001 |      112 |     41600 |            0.27 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      175 |       --- |             --- |
+| Signals        |    <0.001 |      196 |       --- |             --- |
 | I/O            |     0.006 |       17 |       106 |           16.04 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.079 |          |           |                 |
