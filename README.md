@@ -13,6 +13,6 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> Current Progress </summary>
-	Basic seven-segment-display multiplexing works at 50Hz.
-	I'm currently working on making basic clock features (counting the time) working by creating a clock that increments the seconds counter on every clock cycle. This will be updated to correct timing later. 
+	The basic clock features work, albeit at a greatly increased speed, instead of 1 second per second. This should be easy to change by simply modifying my counter variable. 
+
 </details>
