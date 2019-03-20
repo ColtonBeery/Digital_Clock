@@ -14,7 +14,8 @@
 //      7segVerilog.v
 //
 // Revision: 0.4
-// Additional Comments:
+// Additional Comments: Push center button to swap between running mode and set mode. 
+//      
 //
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +32,7 @@ module Digital_Clock(
     /* Timing parameters */
     reg [31:0] counter = 0;
     //parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
-    parameter max_counter = 100000000; // 100 MHz / 100,000,000 = 1 Hz
+    parameter max_counter = 25000000; // 100 MHz / 25,000,000 = 4 Hz
     
     /* Data registers */
     reg [3:0] Tens_of_Hours, Hours, Tens_of_Minutes, Minutes, Tens_of_Seconds, Seconds = 0;
@@ -79,7 +80,9 @@ module Digital_Clock(
                             Minutes <= Minutes + 1;
                         end
                         if (IO_BTN_D) begin
-                            Minutes <= Minutes - 1;
+                            if (Minutes != 0) begin
+                                Minutes <= Minutes - 1;
+                            end
                         end
                         if (IO_BTN_L) begin
                             current_bit <= 1;
@@ -90,7 +93,9 @@ module Digital_Clock(
                             Hours <= Hours + 1;
                         end
                         if (IO_BTN_D) begin
-                            Hours <= Hours - 1;
+                            if (Hours != 0) begin
+                                Hours <= Hours - 1;
+                            end
                         end
                         if (IO_BTN_R) begin
                             current_bit <= 0;
