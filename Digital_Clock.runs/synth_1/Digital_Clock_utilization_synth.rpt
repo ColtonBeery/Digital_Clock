@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 20 09:24:47 2019
+| Date         : Wed Mar 20 09:35:34 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Digital_Clock_utilization_synth.rpt -pb Digital_Clock_utilization_synth.pb
 | Design       : Digital_Clock
@@ -151,13 +151,13 @@ Table of Contents
 +----------+------+---------------------+
 | FDRE     |  103 |        Flop & Latch |
 | LUT4     |   27 |                 LUT |
-| LUT6     |   22 |                 LUT |
-| LUT2     |   13 |                 LUT |
+| LUT6     |   19 |                 LUT |
+| LUT5     |   13 |                 LUT |
+| LUT2     |   12 |                 LUT |
 | OBUF     |   11 |                  IO |
 | CARRY4   |   10 |          CarryLogic |
-| LUT5     |    7 |                 LUT |
-| LUT3     |    5 |                 LUT |
 | IBUF     |    5 |                  IO |
+| LUT3     |    4 |                 LUT |
 | LUT1     |    2 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
