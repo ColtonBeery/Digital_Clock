@@ -3,7 +3,7 @@
 // Company: SDSU
 // Engineer: Colton Beery
 //
-// Revision Date: 03/20/2019 11:35 AM
+// Revision Date: 03/20/2019 11:51 AM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -13,7 +13,7 @@
 //      Basys3_Master_Customized.xdc
 //      7segVerilog.v
 //
-// Revision: 0.6
+// Revision: 1.0
 // Additional Comments: Push center button to swap between running mode and set mode. 
 //                      When in set time mode
 //                         - Push left/right buttons to swap between setting minutes and hours.
@@ -30,8 +30,8 @@ module Digital_Clock(
     
     /* Timing parameters */
     reg [31:0] counter = 0;
-    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
-    //parameter max_counter = 25000000; // 100 MHz / 25,000,000 = 4 Hz
+//    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+      parameter max_counter = 100000000; // 100 MHz / 100000000 = 1 Hz => 1 second per second
     
     /* Data registers */
     reg [5:0] Hours, Minutes, Seconds = 0;
