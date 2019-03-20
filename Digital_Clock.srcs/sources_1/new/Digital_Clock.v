@@ -3,7 +3,7 @@
 // Company: SDSU
 // Engineer: Colton Beery
 //
-// Revision Date: 03/20/2019 10:48 AM
+// Revision Date: 03/20/2019 11:35 AM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -13,7 +13,7 @@
 //      Basys3_Master_Customized.xdc
 //      7segVerilog.v
 //
-// Revision: 0.5
+// Revision: 0.6
 // Additional Comments: Push center button to swap between running mode and set mode. 
 //                      When in set time mode
 //                         - Push left/right buttons to swap between setting minutes and hours.
@@ -90,6 +90,9 @@ module Digital_Clock(
                             if (IO_BTN_D) begin // Decrement minutes when you push down
                                 if (Minutes > 0) begin
                                     Minutes <= Minutes - 1;
+                                end else if (Hours > 0) begin
+                                    Hours <= Hours - 1;
+                                    Minutes <= 59;
                                 end
                             end
                             if (IO_BTN_L || IO_BTN_R) begin // Push left/right button to swap between hours/minutes
