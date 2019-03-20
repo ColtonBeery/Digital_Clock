@@ -13,12 +13,12 @@
 //      Basys3_Master_Customized.xdc
 //      7segVerilog.v
 //
-// Revision: 0.6
+// Revision: 1.0
 // Additional Comments: Push center button to swap between running mode and set mode. 
 //                      When in set time mode
 //                         - Push left/right buttons to swap between setting minutes and hours.
 //                         - Push up/down buttons to increment and decrement time, respectively 
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
