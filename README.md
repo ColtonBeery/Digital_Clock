@@ -13,7 +13,7 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> Current Progress </summary>
-	The basic clock features work, albeit at a greatly increased speed, instead of 1 second per second. This should be easy to change by simply modifying my counter variable.
+	The basic clock features work correctly, at the proper speed. No extra credit features have been added yet. 
 
 </details>
 
