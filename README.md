@@ -33,7 +33,7 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 	+ Push up/down buttons to increment and decrement time, respectively.  
 
-+ When Switch SW0 is up, the clock will display in military time (00:00 to 23:59). When SW0 is down, the clock will display in AM/PM time (12:00 AM to 11:59 PM).  
++ When Switch SW0 is up, the clock will display in military time (00:00 to 23:59). When the switch is down, the clock will display in AM/PM time (12:00 AM to 11:59 PM).  
 
 	+ LED LD0 is the AM/PM indicator. If LED 0 is on, then the current time is HH:YY PM.  
 </details>
