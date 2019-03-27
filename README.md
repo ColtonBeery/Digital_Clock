@@ -16,7 +16,7 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 	The basic clock features work correctly, at the proper speed.
 	Extra Credit features:
 
-	+  AM/PM mode
+	+  AM/PM mode (WIP, still buggy)
 
 </details>
 
@@ -31,5 +31,5 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 	+ Push up/down buttons to increment and decrement time, respectively.  
 
-+ LED 0 is the AM/PM indicator. If LED 0 is on, then the current time is in PM. 
++ LED 0 is the AM/PM indicator. If LED 0 is on, then the current time is in PM.
 </details>

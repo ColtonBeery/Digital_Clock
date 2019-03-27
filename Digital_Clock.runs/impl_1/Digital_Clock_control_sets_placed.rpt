@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Mar 27 10:29:00 2019
+| Date         : Wed Mar 27 11:09:04 2019
 | Host         : DellG5Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Digital_Clock_control_sets_placed.rpt
 | Design       : Digital_Clock
@@ -24,7 +24,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    10 |
-| Unused register locations in slices containing registers |    23 |
+| Unused register locations in slices containing registers |    22 |
 +----------------------------------------------------------+-------+
 
 
@@ -47,12 +47,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              17 |           10 |
+| No           | No                    | No                     |              18 |            9 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              51 |           13 |
-| Yes          | No                    | No                     |              28 |            7 |
+| Yes          | No                    | No                     |              28 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              17 |            6 |
+| Yes          | Yes                   | No                     |              17 |            8 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -62,14 +62,14 @@ Table of Contents
 +----------------+------------------------+--------------------+------------------+----------------+
 |  Clock Signal  |      Enable Signal     |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
 +----------------+------------------------+--------------------+------------------+----------------+
-|  clk_IBUF_BUFG | Minutes[5]_i_2_n_0     | Minutes[5]_i_1_n_0 |                2 |              5 |
-|  clk_IBUF_BUFG | Hours[5]_i_2_n_0       | Hours[5]_i_1_n_0   |                2 |              6 |
+|  clk_IBUF_BUFG | Minutes[5]_i_2_n_0     | Minutes[5]_i_1_n_0 |                3 |              5 |
+|  clk_IBUF_BUFG | Hours[5]_i_2_n_0       | Hours[5]_i_1_n_0   |                3 |              6 |
 |  clk_IBUF_BUFG | Seconds[5]_i_2_n_0     | Seconds[5]_i_1_n_0 |                2 |              6 |
 |  clk_IBUF_BUFG | display/LED_out_reg[0] |                    |                2 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[3] |                    |                1 |              7 |
+|  clk_IBUF_BUFG | display/LED_out_reg[1] |                    |                1 |              7 |
 |  clk_IBUF_BUFG | display/LED_out_reg[2] |                    |                2 |              7 |
-|  clk_IBUF_BUFG | display/LED_out_reg[1] |                    |                2 |              7 |
-|  clk_IBUF_BUFG |                        |                    |               10 |             17 |
+|  clk_IBUF_BUFG | display/LED_out_reg[3] |                    |                1 |              7 |
+|  clk_IBUF_BUFG |                        |                    |                9 |             18 |
 |  clk_IBUF_BUFG |                        | display/clear      |                5 |             19 |
 |  clk_IBUF_BUFG |                        | counter[0]_i_1_n_0 |                8 |             32 |
 +----------------+------------------------+--------------------+------------------+----------------+
