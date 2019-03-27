@@ -13,19 +13,27 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> Current Progress </summary>
-	The basic clock features work correctly, at the proper speed. No extra credit features have been added yet. 
+	The basic clock features work correctly, at the proper speed.
+	Extra Credit features:
+
+	+  AM/PM mode  
+
+	+  Toggle AM/PM mode
 
 </details>
 
 <details>
 	<summary> How to Use  </summary>
 
-+ Push center button to swap between Military Clock mode and Set Time mode.  
++ Push center button to swap between Clock mode and Set Time mode.  
 
 + When in set time mode:  
 
 	+ Push left/right buttons to swap between setting minutes and hours.  
 
-	+ Push up/down buttons to increment and decrement time, respectively.
+	+ Push up/down buttons to increment and decrement time, respectively.  
 
++ When Switch SW0 is up, the clock will display in military time (00:00 to 23:59). When the switch is down, the clock will display in AM/PM time (12:00 AM to 11:59 PM).  
+
+	+ LED LD0 is the AM/PM indicator. If LED 0 is on, then the current time is HH:YY PM.  
 </details>
