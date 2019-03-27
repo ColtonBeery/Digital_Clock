@@ -29,6 +29,7 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 	+ Push left/right buttons to swap between setting minutes and hours.  
 
-	+ Push up/down buttons to increment and decrement time, respectively.
+	+ Push up/down buttons to increment and decrement time, respectively.  
 
++ LED 0 is the AM/PM indicator. If LED 0 is on, then the current time is in PM. 
 </details>
