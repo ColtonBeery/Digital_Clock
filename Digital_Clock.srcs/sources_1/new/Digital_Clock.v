@@ -3,7 +3,7 @@
 // Company: SDSU
 // Engineer: Colton Beery
 //
-// Revision Date: 03/20/2019 11:51 AM
+// Revision Date: 03/27/2019 10:27 AM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -13,7 +13,7 @@
 //      Basys3_Master_Customized.xdc
 //      7segVerilog.v
 //
-// Revision: 0.6
+// Revision: 1.1
 // Additional Comments: Push center button to swap between running mode and set mode. 
 //                      When in set time mode
 //                         - Push left/right buttons to swap between setting minutes and hours.
@@ -25,29 +25,35 @@
 module Digital_Clock(
     input clk, // FPGA clock signal, 100 MHz
     input IO_BTN_C,IO_BTN_U, IO_BTN_L, IO_BTN_R, IO_BTN_D, // FPGA IO pushbuttons
-    output [6:0] IO_SSEG, output [3:0] IO_SSEG_SEL // FPGA 7-Segment Display
+    output [6:0] IO_SSEG, output [3:0] IO_SSEG_SEL, // FPGA 7-Segment Display
+    output [0:0] IO_LED //LED 0 is AM/PM LED
     );
     
     /* Timing parameters */
     reg [31:0] counter = 0;
-//    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
-      parameter max_counter = 100000000; // 100 MHz / 100000000 = 1 Hz => 1 second per second
+    parameter max_counter = 100000; // 100 MHz / 100000 = 1 kHz
+    //parameter max_counter = 100000000; // 100 MHz / 100000000 = 1 Hz => 1 second per second
     
     /* Data registers */
     reg [5:0] Hours, Minutes, Seconds = 0;
     wire [3:0] Digit_0,Digit_1, Digit_2, Digit_3; 
-    reg [0:0] current_bit = 0; //currently only minutes and hours
-    sevseg display(.clk(clk),
+    reg [0:0] current_bit = 0;      // Currently only minutes and hours
+    
+    reg AM_PM = 0;  // AM = 0/off , PM = 1/on
+    assign IO_LED[0] = AM_PM;
+    
+    /* Seven Segment Display */
+    sevseg display(.clk(clk),       // Initialize 7-segment display module
         .binary_input_0(Digit_0),
         .binary_input_1(Digit_1),
         .binary_input_2(Digit_2),
         .binary_input_3(Digit_3),
         .IO_SSEG_SEL(IO_SSEG_SEL),
         .IO_SSEG(IO_SSEG));
-    assign Digit_0 = Minutes % 10;
-    assign Digit_1 = Minutes / 10;
-    assign Digit_2 = Hours % 10;
-    assign Digit_3 = Hours / 10;
+    assign Digit_0 = Minutes % 10;  // 1's of minutes
+    assign Digit_1 = Minutes / 10;  // 10's of minutes
+    assign Digit_2 = Hours % 10;    // 1's of hours
+    assign Digit_3 = Hours / 10;    // 10's of hours
     
     /* Modes */
     parameter Hours_And_Minutes = 1'b0; // Military clock mode - 00:00 to 23:59
@@ -126,8 +132,11 @@ module Digital_Clock(
                 Minutes <= 0;
                 Hours <= Hours + 1;
         end
-        if (Hours >= 24) begin // After 24 hours, reset to 00:00
-                Hours <= 0;
+        if (Hours >= 12) begin // After 12 hours, swap between AM and PM
+            if ((Minutes == 0)&&(Seconds == 0))
+                AM_PM = ~AM_PM;
+            if (Hours >= 13) // 12:59 AM -> 1:00 PM
+                Hours <= 1;
         end
     end //end always @(posedge clk)
 endmodule

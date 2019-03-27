@@ -1,6 +1,8 @@
 set_property SRC_FILE_INFO {cfile:C:/Users/Colton/Vivado/Digital_Clock/Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc rfile:../../../Digital_Clock.srcs/constrs_1/imports/Vivado/Basys3_Master_Customized.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk]
+set_property src_info {type:XDC file:1 line:47 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U16 [get_ports {IO_LED[0]}]
 set_property src_info {type:XDC file:1 line:83 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W7 [get_ports {IO_SSEG[0]}]
 set_property src_info {type:XDC file:1 line:85 export:INPUT save:INPUT read:READ} [current_design]

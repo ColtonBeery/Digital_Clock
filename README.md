@@ -1,7 +1,7 @@
 # COMPE470L Digital Clock Lab for Basys 3
 
 <details>
-	<summary> The Instructions </summary>
+	<summary> Teacher's Project Instructions </summary>
 This lab is to create a digital clock of your own design.  As a minimum, it must display the time on the 7 segment LED display using multiplexing of the digits at a rate of exactly 50Hz (1/50Hz= 20 mS for all 4 digits and each digit must be on for 5 mS = 20 mS/4). You must demonstrate the timing accuracy using the scope or the logic analyzer.  
 
 The minimum design for a C grade must display the time and blink the minutes' digit decimal point once per second (on for 0.5 sec, off for 0.5 sec). You must also allow setting the time using the push buttons and switches. The push buttons and DIP switches may be used however you like, but you must be able to set the hours and minutes.  That represents the  minimum required for a C grade on this lab.  
@@ -13,6 +13,22 @@ NOTE: This is an individual, one-student per project effort, so you must design 
 
 <details>
 	<summary> Current Progress </summary>
-	The basic clock features work, albeit at a greatly increased speed, instead of 1 second per second. This should be easy to change by simply modifying my counter variable. 
+	The basic clock features work correctly, at the proper speed.
+	Extra Credit features:
+
+	+  AM/PM mode
+
+</details>
+
+<details>
+	<summary> How to Use  </summary>
+
++ Push center button to swap between Clock mode and Set Time mode.  
+
++ When in set time mode:  
+
+	+ Push left/right buttons to swap between setting minutes and hours.  
+
+	+ Push up/down buttons to increment and decrement time, respectively.
 
 </details>
