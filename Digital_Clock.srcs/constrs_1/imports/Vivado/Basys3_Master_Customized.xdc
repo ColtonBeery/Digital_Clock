@@ -8,9 +8,9 @@ set_property PACKAGE_PIN W5 [get_ports clk]
 	set_property IOSTANDARD LVCMOS33 [get_ports clk]
 	create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
  
-## IO_SWITCHitches; up = 1, down = 0
-#set_property PACKAGE_PIN V17 [get_ports {IO_SWITCH[0]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {IO_SWITCH[0]}]
+## IO Switches; up = 1, down = 0
+set_property PACKAGE_PIN V17 [get_ports {IO_SWITCH[0]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {IO_SWITCH[0]}]
 #set_property PACKAGE_PIN V16 [get_ports {IO_SWITCH[1]}]					
 #	set_property IOSTANDARD LVCMOS33 [get_ports {IO_SWITCH[1]}]
 #set_property PACKAGE_PIN W16 [get_ports {IO_SWITCH[2]}]					
@@ -96,8 +96,8 @@ set_property PACKAGE_PIN U7 [get_ports {IO_SSEG[6]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {IO_SSEG[6]}]
 
 ##decimal point
-set_property PACKAGE_PIN V7 [get_ports IO_SSEG_DP]							
-	set_property IOSTANDARD LVCMOS33 [get_ports IO_SSEG_DP]
+#set_property PACKAGE_PIN V7 [get_ports IO_SSEG_DP]							
+#	set_property IOSTANDARD LVCMOS33 [get_ports IO_SSEG_DP]
 
 ##7-segment display selector; 0 is farthest right, 3 is furthest left 
 set_property PACKAGE_PIN U2 [get_ports {IO_SSEG_SEL[0]}]					

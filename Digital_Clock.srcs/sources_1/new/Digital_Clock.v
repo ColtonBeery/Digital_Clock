@@ -3,7 +3,7 @@
 // Company: SDSU
 // Engineer: Colton Beery
 //
-// Revision Date: 03/27/2019 11:08 AM
+// Revision Date: 03/27/2019 12:47 PM
 // Module Name: Digital_Clock
 // Project Name: Digital Clock
 // Target Devices: Basys 3
@@ -18,6 +18,8 @@
 //                      When in set time mode
 //                         - Push left/right buttons to swap between setting minutes and hours.
 //                         - Push up/down buttons to increment and decrement time, respectively 
+//                      SW0 toggles between AM/PM and Military time - Switch up = military, down = AM/PM
+//                      When clock is set to AM/PM, LED0 on = PM
 //
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -25,6 +27,7 @@
 module Digital_Clock(
     input clk, // FPGA clock signal, 100 MHz
     input IO_BTN_C,IO_BTN_U, IO_BTN_L, IO_BTN_R, IO_BTN_D, // FPGA IO pushbuttons
+    input [0:0] IO_SWITCH,//IO Switch 0 toggles between Military and AM/PM
     output [6:0] IO_SSEG, output [3:0] IO_SSEG_SEL, // FPGA 7-Segment Display
     output [0:0] IO_LED //LED 0 is AM/PM LED
     );
@@ -35,12 +38,15 @@ module Digital_Clock(
     parameter max_counter = 100000000; // 100 MHz / 100000000 = 1 Hz => 1 second per second
     
     /* Data registers */
-    reg [5:0] Hours, Minutes, Seconds = 0;
-    wire [3:0] Digit_0,Digit_1, Digit_2, Digit_3; 
+    reg [5:0] Hours, Minutes, Seconds = 0; 
+    reg [3:0] Digit_0,Digit_1, Digit_2, Digit_3 = 0; 
     reg [0:0] current_bit = 0;      // Currently only minutes and hours
     
-    reg AM_PM, Should_Toggle_Time = 0;  // AM = 0/off , PM = 1/on
+    reg Military_or_AMPM = 0; // 0 = AM/PM, 1 = Military Time
+    
+    reg AM_PM = 0;  // AM = 0/off , PM = 1/on
     assign IO_LED[0] = AM_PM;
+    
     
     /* Seven Segment Display */
     sevseg display(.clk(clk),       // Initialize 7-segment display module
@@ -50,15 +56,12 @@ module Digital_Clock(
         .binary_input_3(Digit_3),
         .IO_SSEG_SEL(IO_SSEG_SEL),
         .IO_SSEG(IO_SSEG));
-    assign Digit_0 = Minutes % 10;  // 1's of minutes
-    assign Digit_1 = Minutes / 10;  // 10's of minutes
-    assign Digit_2 = Hours % 10;    // 1's of hours
-    assign Digit_3 = Hours / 10;    // 10's of hours
     
     /* Modes */
     parameter Hours_And_Minutes = 1'b0; // Clock mode - 12:00AM to 11:59PM
     parameter Set_Clock = 1'b1;         // Set time mode
     reg [0:0] Current_Mode = Set_Clock; //Start in set time mode by default
+    
     
     always @(posedge clk) begin
         case(Current_Mode)
@@ -76,15 +79,14 @@ module Digital_Clock(
                 end else begin
                     counter <= 0;
                     Seconds <= Seconds + 1;
-                end                
+                end                                
             end //Hours_And_Minutes
             Set_Clock: begin
-                if (IO_BTN_C) begin //Push center button to commit time set and return to Military clock mode
+                if (IO_BTN_C) begin // Push center button to commit time set and return to Clock mode
                     Current_Mode <= Hours_And_Minutes;
                 end
-                //if (counter < max_counter) begin 
-                if (counter < (25000000)) begin // Because of insanely high clock speed in debug mode,
-                                                      // much slower clock when setting - 4 Hz
+                
+                if (counter < (25000000)) begin // different clock speed when setting - 4 Hz
                     counter <= counter + 1;
                 end else begin
                     counter <= 0;
@@ -102,7 +104,6 @@ module Digital_Clock(
                                 end else if (Hours == 1) begin
                                     Hours <= 12;
                                     Minutes <= 59;
-                                    //AM_PM <= ~AM_PM;
                                 end
                             end
                             if (IO_BTN_L || IO_BTN_R) begin // Push left/right button to swap between hours/minutes
@@ -130,7 +131,7 @@ module Digital_Clock(
             end // end Set_Clock
         endcase // end case(Current_Mode)
         
-        /* AM PM Time Clock Stuff */
+        /* Clock Stuff */
         if (Seconds >= 60) begin // After 60 seconds, increment minutes
                 Seconds <= 0;
                 Minutes <= Minutes + 1;
@@ -139,17 +140,43 @@ module Digital_Clock(
                 Minutes <= 0;
                 Hours <= Hours + 1;
         end
-        if (Hours >= 12) begin // After 12 hours, swap between AM and PM
-            //if ((Minutes == 0)&&(Seconds == 0))
-            if (Hours == 12)
-                Should_Toggle_Time <= 1;
-            if (Hours >= 13) // 12:59 AM -> 1:00 PM
-                Hours <= 1;
+        if (Hours >= 24) begin // After 12 hours, swap between AM and PM
+            Hours <= 0;
         end
         
-        if (Should_Toggle_Time) begin
-             AM_PM = ~AM_PM;
-             Should_Toggle_Time <= 0;
-         end
+        /* Clock Display */
+        Military_or_AMPM <= IO_SWITCH[0];
+        /* Military time */
+        if (Military_or_AMPM) begin // 1 = Military Time
+            Digit_0 <= Minutes % 10;  // 1's of minutes
+            Digit_1 <= Minutes / 10;  // 10's of minutes
+            Digit_2 <= Hours % 10;    // 1's of hours
+            Digit_3 <= Hours / 10;    // 10's of hours
+            AM_PM <= 0;
+        end 
+        /* AM PM time */
+        else begin              // 0 = AM PM Time
+            Digit_0 <= Minutes % 10;  // 1's of minutes
+            Digit_1 <= Minutes / 10;  // 10's of minutes            
+            if (Hours < 12) begin
+                if (Hours == 0) begin // 00:00 military = 12:00 AM
+                    Digit_2 <= 2;
+                    Digit_3 <= 1;
+                end else begin
+                    Digit_2 <= Hours % 10;    // 1's of hours
+                    Digit_3 <= Hours / 10;    // 10's of hours
+                end
+                AM_PM <= 0;
+            end else begin // end Hours < 12
+                if (Hours == 12) begin //12:00 military = 12:00 PM
+                    Digit_2 <= 2;
+                    Digit_3 <= 1;
+                end else begin
+                    Digit_2 <= (Hours - 12) % 10;    // 1's of hours
+                    Digit_3 <= (Hours - 12) / 10;    // 10's of hours
+                end
+                AM_PM <= 1;                        
+            end // end Hours >= 12             
+        end // end Clock Display
     end //end always @(posedge clk)
 endmodule
